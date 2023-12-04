@@ -8,6 +8,7 @@ def main():
 
 def process_csv():
     for file in glob.glob("input/*.csv"):
+        print(file)
         df = pd.read_csv(file)
         # Split dataframe into 2 columns -> k, v
         split_data = df["kolom:waarde"].str.split(":", expand=True)
@@ -31,6 +32,12 @@ def process_csv():
             last_name = ""
         last_name_df = pd.DataFrame({"Key": ["last_name"], "Value": [last_name]})
         split_data = pd.concat([split_data, last_name_df])
+
+        # Split address into street and house_number
+
+        # Transform birthdate to dashed format
+
+        # Translate all other keys
 
         print(split_data)
 
